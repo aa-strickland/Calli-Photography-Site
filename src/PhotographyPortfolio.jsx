@@ -11,16 +11,18 @@ import {
 } from "react-icons/fa";
 
 export default function PhotographyPortfolio() {
-  // exact gold tone for borders
-  const leafGold = "#BF8303";
+  // THEME
+  const forestGreen = "#013220"; // dark forest green (accents/borders)
+  const sageGreen = "#9CAF88";   // page background
 
-  const goldFilter =
-    "invert(67%) sepia(89%) saturate(511%) hue-rotate(6deg) brightness(105%) contrast(103%)";
+  // Force leaf image to solid dark forest green
+  const leafFilter =
+    "brightness(0) saturate(100%) invert(15%) sepia(99%) saturate(600%) hue-rotate(90deg)";
 
   return (
     <div
       style={{
-        backgroundColor: "#0b3621",
+        backgroundColor: sageGreen,
         minHeight: "100vh",
         fontFamily:
           "'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif",
@@ -28,11 +30,11 @@ export default function PhotographyPortfolio() {
         textAlign: "center",
         position: "relative",
         overflowX: "hidden",
-        border: `3px solid ${leafGold}`, // page border
+        border: `3px solid ${forestGreen}`, // page border
         boxSizing: "border-box",
       }}
     >
-      {/* ===== GOLD LEAVES IN CORNERS ===== */}
+      {/* ===== DARK-GREEN LEAVES IN CORNERS ===== */}
       <img
         src="/leaves/leaf1.webp"
         alt="leaf top left"
@@ -41,9 +43,9 @@ export default function PhotographyPortfolio() {
           top: 0,
           left: 0,
           width: 320,
-          opacity: 0.9,
+          opacity: 1,
           transform: "scale(-1, -1)",
-          filter: goldFilter,
+          filter: leafFilter,
           pointerEvents: "none",
           zIndex: 0,
         }}
@@ -56,9 +58,9 @@ export default function PhotographyPortfolio() {
           top: 0,
           right: 0,
           width: 320,
-          opacity: 0.9,
+          opacity: 1,
           transform: "scaleY(-1)",
-          filter: goldFilter,
+          filter: leafFilter,
           pointerEvents: "none",
           zIndex: 0,
         }}
@@ -71,9 +73,9 @@ export default function PhotographyPortfolio() {
           bottom: 0,
           left: 0,
           width: 320,
-          opacity: 0.9,
+          opacity: 1,
           transform: "scaleX(-1)",
-          filter: goldFilter,
+          filter: leafFilter,
           pointerEvents: "none",
           zIndex: 0,
         }}
@@ -86,8 +88,8 @@ export default function PhotographyPortfolio() {
           bottom: 0,
           right: 0,
           width: 320,
-          opacity: 0.9,
-          filter: goldFilter,
+          opacity: 1,
+          filter: leafFilter,
           pointerEvents: "none",
           zIndex: 0,
         }}
@@ -105,11 +107,12 @@ export default function PhotographyPortfolio() {
               fontFamily: "'Great Vibes', cursive",
               fontSize: "3.2rem",
               margin: 0,
+              color: "white",
             }}
           >
             Calli Knight Photography
           </motion.h1>
-          <p style={{ marginTop: 10, fontSize: "1.05rem" }}>
+          <p style={{ marginTop: 10, fontSize: "1.05rem", color: "white" }}>
             Welcome home—jump to albums, connect on socials, or request a quote.
           </p>
         </div>
@@ -129,51 +132,50 @@ export default function PhotographyPortfolio() {
           <motion.div
             whileHover={{ scale: 1.04 }}
             style={{
-              background: "#0b3621",
-              border: `2px solid ${leafGold}`,
+              background: "transparent",
+              border: `2px solid ${forestGreen}`,
               borderRadius: 12,
               padding: 20,
               width: 280,
               minWidth: 260,
               boxShadow: "0 4px 10px rgba(0,0,0,0.25)",
               textAlign: "center",
+              color: "white",
             }}
           >
-            <div style={{ color: leafGold, marginBottom: 10 }}>
+            <div style={{ color: forestGreen, marginBottom: 10 }}>
               <FaLeaf size={28} />
             </div>
-            <h3 style={{ margin: 0 }}>Socials</h3>
-            <p style={{ fontSize: ".95rem", color: "#e9e9e9", marginTop: 6 }}>
+            <h3 style={{ margin: 0, color: "white" }}>Socials</h3>
+            <p style={{ fontSize: ".95rem", color: "white", marginTop: 6 }}>
               Instagram, Facebook, TikTok
             </p>
           </motion.div>
 
           {/* Albums card (clickable link) */}
-          <Link
-            to="/albums"
-            style={{ textDecoration: "none", color: "inherit" }}
-          >
+          <Link to="/albums" style={{ textDecoration: "none", color: "inherit" }}>
             <motion.div
               whileHover={{ scale: 1.04 }}
               style={{
-                background: "#0b3621",
-                border: `2px solid ${leafGold}`,
+                background: "transparent",
+                border: `2px solid ${forestGreen}`,
                 borderRadius: 12,
                 padding: 20,
                 width: 280,
                 minWidth: 260,
                 boxShadow: "0 4px 10px rgba(0,0,0,0.25)",
                 textAlign: "center",
+                color: "white",
               }}
             >
-              <div style={{ color: leafGold, marginBottom: 10 }}>
+              <div style={{ color: forestGreen, marginBottom: 10 }}>
                 <FaCamera size={28} />
               </div>
-              <h3 style={{ margin: 0 }}>Albums</h3>
+              <h3 style={{ margin: 0, color: "white" }}>Albums</h3>
               <p
                 style={{
                   fontSize: ".95rem",
-                  color: "#e9e9e9",
+                  color: "white",
                   marginTop: 6,
                 }}
               >
@@ -186,21 +188,22 @@ export default function PhotographyPortfolio() {
           <motion.div
             whileHover={{ scale: 1.04 }}
             style={{
-              background: "#0b3621",
-              border: `2px solid ${leafGold}`,
+              background: "transparent",
+              border: `2px solid ${forestGreen}`,
               borderRadius: 12,
               padding: 20,
               width: 280,
               minWidth: 260,
               boxShadow: "0 4px 10px rgba(0,0,0,0.25)",
               textAlign: "center",
+              color: "white",
             }}
           >
-            <div style={{ color: leafGold, marginBottom: 10 }}>
+            <div style={{ color: forestGreen, marginBottom: 10 }}>
               <FaComments size={28} />
             </div>
-            <h3 style={{ margin: 0 }}>Request a Quote</h3>
-            <p style={{ fontSize: ".95rem", color: "#e9e9e9", marginTop: 6 }}>
+            <h3 style={{ margin: 0, color: "white" }}>Request a Quote</h3>
+            <p style={{ fontSize: ".95rem", color: "white", marginTop: 6 }}>
               Tell me about your session
             </p>
           </motion.div>
@@ -222,8 +225,8 @@ export default function PhotographyPortfolio() {
             whileHover={{ scale: 1.02 }}
             style={{
               background: "white",
-              color: "#0b3621",
-              border: `2px solid ${leafGold}`,
+              color: forestGreen,
+              border: `2px solid ${forestGreen}`,
               borderRadius: 12,
               padding: 22,
               width: 520,
@@ -251,7 +254,7 @@ export default function PhotographyPortfolio() {
               maxWidth: "92vw",
               height: "auto",
               borderRadius: 12,
-              border: `2px solid ${leafGold}`,
+              border: `2px solid ${forestGreen}`,
               boxShadow: "0 4px 10px rgba(0,0,0,0.25)",
               objectFit: "cover",
             }}
@@ -260,7 +263,7 @@ export default function PhotographyPortfolio() {
 
         {/* ===== FOLLOW ===== */}
         <div style={{ marginTop: 36, marginBottom: 56 }}>
-          <h3 style={{ marginBottom: 14 }}>Follow</h3>
+          <h3 style={{ marginBottom: 14, color: "white" }}>Follow</h3>
 
           <div
             style={{
@@ -280,8 +283,8 @@ export default function PhotographyPortfolio() {
                 display: "flex",
                 alignItems: "center",
                 gap: 8,
-                border: `2px solid ${leafGold}`,
-                color: leafGold,
+                border: `2px solid ${forestGreen}`,
+                color: "white",
                 borderRadius: 28,
                 padding: "10px 18px",
                 textDecoration: "none",
@@ -300,8 +303,8 @@ export default function PhotographyPortfolio() {
                 display: "flex",
                 alignItems: "center",
                 gap: 8,
-                border: `2px solid ${leafGold}`,
-                color: leafGold,
+                border: `2px solid ${forestGreen}`,
+                color: "white",
                 borderRadius: 28,
                 padding: "10px 18px",
                 textDecoration: "none",
@@ -320,8 +323,8 @@ export default function PhotographyPortfolio() {
                 display: "flex",
                 alignItems: "center",
                 gap: 8,
-                border: `2px solid ${leafGold}`,
-                color: leafGold,
+                border: `2px solid ${forestGreen}`,
+                color: "white",
                 borderRadius: 28,
                 padding: "10px 18px",
                 textDecoration: "none",
