@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 
 export default function Seniors() {
   const forestGreen = "#013220";
+  const sageGreen = "#9CAF88";
+
   const leafFilter =
     "brightness(0) saturate(100%) invert(15%) sepia(99%) saturate(600%) hue-rotate(90deg)";
 
@@ -17,10 +19,16 @@ export default function Seniors() {
     background: "transparent",
   };
 
+  // Seniors1.JPG - Seniors14.JPG in /public/Albums/Seniors
+  const seniorFiles = Array.from(
+    { length: 14 },
+    (_, i) => `/Albums/Seniors/Seniors${i + 1}.JPG`
+  );
+
   return (
     <div
       style={{
-        backgroundColor: "#9CAF88",
+        backgroundColor: sageGreen,
         minHeight: "100vh",
         color: "white",
         position: "relative",
@@ -29,27 +37,68 @@ export default function Seniors() {
         boxSizing: "border-box",
       }}
     >
-      {/* Leaves */}
-      {["top left", "top right", "bottom left", "bottom right"].map((alt, i) => (
-        <img
-          key={alt}
-          src="/leaves/leaf1.webp"
-          alt={`leaf ${alt}`}
-          style={{
-            position: "fixed",
-            ...(i === 0 && { top: 0, left: 0, transform: "scale(-1,-1)" }),
-            ...(i === 1 && { top: 0, right: 0, transform: "scaleY(-1)" }),
-            ...(i === 2 && { bottom: 0, left: 0, transform: "scaleX(-1)" }),
-            ...(i === 3 && { bottom: 0, right: 0 }),
-            width: 320,
-            opacity: 1,
-            filter: leafFilter,
-            pointerEvents: "none",
-          }}
-        />
-      ))}
+      {/* ===== Corner Leaves ===== */}
+      <img
+        src="/leaves/leaf1.webp"
+        alt="leaf top left"
+        style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          width: 320,
+          opacity: 1,
+          transform: "scale(-1,-1)",
+          filter: leafFilter,
+          pointerEvents: "none",
+          zIndex: 0,
+        }}
+      />
+      <img
+        src="/leaves/leaf1.webp"
+        alt="leaf top right"
+        style={{
+          position: "fixed",
+          top: 0,
+          right: 0,
+          width: 320,
+          opacity: 1,
+          transform: "scaleY(-1)",
+          filter: leafFilter,
+          pointerEvents: "none",
+          zIndex: 0,
+        }}
+      />
+      <img
+        src="/leaves/leaf1.webp"
+        alt="leaf bottom left"
+        style={{
+          position: "fixed",
+          bottom: 0,
+          left: 0,
+          width: 320,
+          opacity: 1,
+          transform: "scaleX(-1)",
+          filter: leafFilter,
+          pointerEvents: "none",
+          zIndex: 0,
+        }}
+      />
+      <img
+        src="/leaves/leaf1.webp"
+        alt="leaf bottom right"
+        style={{
+          position: "fixed",
+          bottom: 0,
+          right: 0,
+          width: 320,
+          opacity: 1,
+          filter: leafFilter,
+          pointerEvents: "none",
+          zIndex: 0,
+        }}
+      />
 
-      {/* Content */}
+      {/* ===== Content ===== */}
       <main
         style={{
           position: "relative",
@@ -68,23 +117,35 @@ export default function Seniors() {
           Seniors Album
         </h1>
         <p style={{ fontSize: "1.1rem", marginBottom: 28 }}>
-          Celebrating the senior year.
+          A collection of senior portraits.
         </p>
 
+        {/* Masonry Layout */}
         <div
           style={{
+            columnCount: 3,
+            columnGap: "16px",
             maxWidth: 1100,
             margin: "0 auto",
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(240px, 1fr))",
-            gap: 16,
           }}
         >
-          <img src="/Albums/Seniors/pic1.jpg" alt="Senior 1" style={{ width: "100%", borderRadius: 8 }} />
-          <img src="/Albums/Seniors/pic2.jpg" alt="Senior 2" style={{ width: "100%", borderRadius: 8 }} />
-          <img src="/Albums/Seniors/pic3.jpg" alt="Senior 3" style={{ width: "100%", borderRadius: 8 }} />
+          {seniorFiles.map((src, idx) => (
+            <img
+              key={src}
+              src={src}
+              alt={`Seniors ${idx + 1}`}
+              style={{
+                width: "100%",
+                borderRadius: 10,
+                border: `2px solid ${forestGreen}`,
+                marginBottom: 16,
+                display: "inline-block",
+              }}
+            />
+          ))}
         </div>
 
+        {/* Navigation */}
         <div
           style={{
             marginTop: 36,

@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import PhotographyPortfolio from "./PhotographyPortfolio";
 import Albums from "./pages/Albums";
 
-// Album subpages (make sure these files exist with these exact names)
+// Album subpages
 import Graduation from "./pages/Graduation";
 import Prom from "./pages/Prom";
 import Seniors from "./pages/Seniors";
@@ -13,7 +13,13 @@ import Nature from "./pages/Nature";
 import Farm from "./pages/Farm";
 import Sports from "./pages/Sports";
 import JustForFun from "./pages/JustForFun";
+import Pets from "./pages/Pets";
 
+// NEW: Quotes page
+import Quotes from "./pages/Quotes";
+import Socials from "./pages/Socials";
+
+// ===== letter-by-letter animation for the landing title =====
 const letterVariant = {
   hidden: { opacity: 0, x: -20 },
   visible: (i) => ({
@@ -79,11 +85,29 @@ function LandingScreen({ onEnter }) {
       exit={{ opacity: 0 }}
       transition={{ duration: 1.0 }}
     >
-      <img src="/leaves/leaf1.webp" alt="leaf top left" style={leafStyle({ top: 0, left: 0, transform: "scale(-1, -1)" })} />
-      <img src="/leaves/leaf1.webp" alt="leaf top right" style={leafStyle({ top: 0, right: 0, transform: "scaleY(-1)" })} />
-      <img src="/leaves/leaf1.webp" alt="leaf bottom left" style={leafStyle({ bottom: 0, left: 0, transform: "scaleX(-1)" })} />
-      <img src="/leaves/leaf1.webp" alt="leaf bottom right" style={leafStyle({ bottom: 0, right: 0 })} />
+      {/* Corner leaves */}
+      <img
+        src="/leaves/leaf1.webp"
+        alt="leaf top left"
+        style={leafStyle({ top: 0, left: 0, transform: "scale(-1, -1)" })}
+      />
+      <img
+        src="/leaves/leaf1.webp"
+        alt="leaf top right"
+        style={leafStyle({ top: 0, right: 0, transform: "scaleY(-1)" })}
+      />
+      <img
+        src="/leaves/leaf1.webp"
+        alt="leaf bottom left"
+        style={leafStyle({ bottom: 0, left: 0, transform: "scaleX(-1)" })}
+      />
+      <img
+        src="/leaves/leaf1.webp"
+        alt="leaf bottom right"
+        style={leafStyle({ bottom: 0, right: 0 })}
+      />
 
+      {/* Title */}
       <h1
         style={{
           fontFamily: "'Great Vibes', cursive",
@@ -100,7 +124,12 @@ function LandingScreen({ onEnter }) {
         <AnimatedWord text="Photography" />
       </h1>
 
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 140" style={{ width: "90%", maxWidth: "1400px", marginTop: "-6px", marginBottom: "40px" }}>
+      {/* underline */}
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1000 140"
+        style={{ width: "90%", maxWidth: "1400px", marginTop: "-6px", marginBottom: "40px" }}
+      >
         <motion.path
           d="M20 90 C 260 20, 740 160, 980 70"
           stroke={forestGreen}
@@ -113,6 +142,7 @@ function LandingScreen({ onEnter }) {
         />
       </svg>
 
+      {/* Explore */}
       <button
         onClick={onEnter}
         style={{
@@ -153,6 +183,11 @@ export default function App() {
         <Route path="/albums/farm" element={<Farm />} />
         <Route path="/albums/sports" element={<Sports />} />
         <Route path="/albums/just-for-fun" element={<JustForFun />} />
+        <Route path="/albums/pets" element={<Pets />} />
+
+        {/* NEW: Quotes & Contact */}
+        <Route path="/quotes" element={<Quotes />} />
+        <Route path="/socials" element={<Socials />} />
       </Routes>
     </Router>
   );

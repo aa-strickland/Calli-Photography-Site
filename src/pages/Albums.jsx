@@ -8,26 +8,31 @@ import {
   FaTractor,
   FaFootballBall,
   FaSmileBeam,
+  FaPaw,
 } from "react-icons/fa";
 
 export default function Albums() {
-  // THEME COLORS
-  const forestGreen = "#013220"; // dark forest green
-  const sageGreen = "#9CAF88";   // sage background
+  // THEME
+  const forestGreen = "#013220"; // accents & borders
+  const sageGreen = "#9CAF88";   // page background
 
-  // Force leaves to solid dark green
+  // Solid dark green leaves
   const leafFilter =
     "brightness(0) saturate(100%) invert(15%) sepia(99%) saturate(600%) hue-rotate(90deg)";
 
+  // Row 1 (4)
   const row1 = [
     { label: "Graduation", icon: <FaUserGraduate size={28} />, path: "/albums/graduation" },
     { label: "Prom", icon: <FaCrown size={28} />, path: "/albums/prom" },
     { label: "Seniors", icon: <FaUserGraduate size={28} />, path: "/albums/seniors" },
     { label: "Nature", icon: <FaLeaf size={28} />, path: "/albums/nature" },
   ];
+
+  // Row 2 (4) — includes Pets to keep symmetry
   const row2 = [
     { label: "Farm", icon: <FaTractor size={28} />, path: "/albums/farm" },
     { label: "Sports", icon: <FaFootballBall size={28} />, path: "/albums/sports" },
+    { label: "Pets", icon: <FaPaw size={28} />, path: "/albums/pets" },
     { label: "Just for Fun", icon: <FaSmileBeam size={28} />, path: "/albums/just-for-fun" },
   ];
 
@@ -67,7 +72,7 @@ export default function Albums() {
         boxSizing: "border-box",
       }}
     >
-      {/* Dark green leaves */}
+      {/* Leaves */}
       <img
         src="/leaves/leaf1.webp"
         alt="leaf top left"
@@ -144,7 +149,7 @@ export default function Albums() {
           Browse featured galleries.
         </p>
 
-        {/* Row 1 */}
+        {/* Row 1: 4 across */}
         <div
           style={{
             display: "grid",
@@ -157,13 +162,13 @@ export default function Albums() {
           {row1.map(card)}
         </div>
 
-        {/* Row 2 */}
+        {/* Row 2: 4 across */}
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(3, 1fr)",
+            gridTemplateColumns: "repeat(4, 1fr)",
             gap: 24,
-            maxWidth: 825,
+            maxWidth: 1100,
             margin: "0 auto",
           }}
         >

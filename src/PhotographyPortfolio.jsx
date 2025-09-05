@@ -128,31 +128,36 @@ export default function PhotographyPortfolio() {
             flexWrap: "wrap",
           }}
         >
-          {/* Socials card */}
-          <motion.div
-            whileHover={{ scale: 1.04 }}
-            style={{
-              background: "transparent",
-              border: `2px solid ${forestGreen}`,
-              borderRadius: 12,
-              padding: 20,
-              width: 280,
-              minWidth: 260,
-              boxShadow: "0 4px 10px rgba(0,0,0,0.25)",
-              textAlign: "center",
-              color: "white",
-            }}
-          >
-            <div style={{ color: forestGreen, marginBottom: 10 }}>
-              <FaLeaf size={28} />
-            </div>
-            <h3 style={{ margin: 0, color: "white" }}>Socials</h3>
-            <p style={{ fontSize: ".95rem", color: "white", marginTop: 6 }}>
-              Instagram, Facebook, TikTok
-            </p>
-          </motion.div>
+          {/* Socials card (clickable link) */}
+          <Link to="/socials" style={{ textDecoration: "none", color: "inherit" }}>
+            <motion.div
+              whileHover={{ scale: 1.04 }}
+              style={{
+                background: "transparent",
+                border: `2px solid ${forestGreen}`,
+                borderRadius: 12,
+                padding: 20,
+                width: 280,
+                minWidth: 260,
+                boxShadow: "0 4px 10px rgba(0,0,0,0.25)",
+                textAlign: "center",
+                color: "white",
+                cursor: "pointer",
+              }}
+              role="button"
+              aria-label="Open Socials"
+            >
+              <div style={{ color: forestGreen, marginBottom: 10 }}>
+                <FaLeaf size={28} />
+              </div>
+              <h3 style={{ margin: 0, color: "white" }}>Socials</h3>
+              <p style={{ fontSize: ".95rem", color: "white", marginTop: 6 }}>
+                Instagram, Facebook, TikTok
+              </p>
+            </motion.div>
+          </Link>
 
-          {/* Albums card (clickable link) */}
+          {/* Albums card */}
           <Link to="/albums" style={{ textDecoration: "none", color: "inherit" }}>
             <motion.div
               whileHover={{ scale: 1.04 }}
@@ -166,47 +171,49 @@ export default function PhotographyPortfolio() {
                 boxShadow: "0 4px 10px rgba(0,0,0,0.25)",
                 textAlign: "center",
                 color: "white",
+                cursor: "pointer",
               }}
+              role="button"
+              aria-label="Open Albums"
             >
               <div style={{ color: forestGreen, marginBottom: 10 }}>
                 <FaCamera size={28} />
               </div>
               <h3 style={{ margin: 0, color: "white" }}>Albums</h3>
-              <p
-                style={{
-                  fontSize: ".95rem",
-                  color: "white",
-                  marginTop: 6,
-                }}
-              >
+              <p style={{ fontSize: ".95rem", color: "white", marginTop: 6 }}>
                 Browse featured galleries
               </p>
             </motion.div>
           </Link>
 
           {/* Request a Quote card */}
-          <motion.div
-            whileHover={{ scale: 1.04 }}
-            style={{
-              background: "transparent",
-              border: `2px solid ${forestGreen}`,
-              borderRadius: 12,
-              padding: 20,
-              width: 280,
-              minWidth: 260,
-              boxShadow: "0 4px 10px rgba(0,0,0,0.25)",
-              textAlign: "center",
-              color: "white",
-            }}
-          >
-            <div style={{ color: forestGreen, marginBottom: 10 }}>
-              <FaComments size={28} />
-            </div>
-            <h3 style={{ margin: 0, color: "white" }}>Request a Quote</h3>
-            <p style={{ fontSize: ".95rem", color: "white", marginTop: 6 }}>
-              Tell me about your session
-            </p>
-          </motion.div>
+          <Link to="/quotes" style={{ textDecoration: "none", color: "inherit" }}>
+            <motion.div
+              whileHover={{ scale: 1.04 }}
+              style={{
+                background: "transparent",
+                border: `2px solid ${forestGreen}`,
+                borderRadius: 12,
+                padding: 20,
+                width: 280,
+                minWidth: 260,
+                boxShadow: "0 4px 10px rgba(0,0,0,0.25)",
+                textAlign: "center",
+                color: "white",
+                cursor: "pointer",
+              }}
+              role="button"
+              aria-label="Open Quotes"
+            >
+              <div style={{ color: forestGreen, marginBottom: 10 }}>
+                <FaComments size={28} />
+              </div>
+              <h3 style={{ margin: 0, color: "white" }}>Request a Quote</h3>
+              <p style={{ fontSize: ".95rem", color: "white", marginTop: 6 }}>
+                Request pricing and availability
+              </p>
+            </motion.div>
+          </Link>
         </div>
 
         {/* ===== ABOUT + PORTRAIT ===== */}
@@ -237,7 +244,8 @@ export default function PhotographyPortfolio() {
           >
             <h2 style={{ marginTop: 0 }}>About Me</h2>
             <p style={{ lineHeight: 1.55, marginBottom: 0 }}>
-              Hi, I’m Calli Knight. Photography is my passion—I love capturing
+              Hi, I’m Calli Knight. I’m 19 years old and based in{" "}
+              Tallahassee, Florida. Photography is my passion.I love capturing
               the raw beauty of moments in nature, portraits, and stories told
               through light. Every photo is an expression of creativity and
               connection. Welcome to my portfolio; I’m excited to share my work

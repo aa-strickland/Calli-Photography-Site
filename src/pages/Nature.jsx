@@ -3,24 +3,18 @@ import { Link } from "react-router-dom";
 
 export default function Nature() {
   const forestGreen = "#013220";
+  const sageGreen = "#9CAF88";
+
   const leafFilter =
     "brightness(0) saturate(100%) invert(15%) sepia(99%) saturate(600%) hue-rotate(90deg)";
 
-  const button = {
-    border: `2px solid ${forestGreen}`,
-    color: "white",
-    background: "transparent",
-    padding: "10px 18px",
-    borderRadius: "9999px",
-    textDecoration: "none",
-    fontWeight: 600,
-    fontSize: "1rem",
-  };
+  // Nature images
+  const natureFiles = Array.from({ length: 6 }, (_, i) => `/Albums/Nature/Nature${i + 1}.JPG`);
 
   return (
     <div
       style={{
-        backgroundColor: "#9CAF88",
+        backgroundColor: sageGreen,
         minHeight: "100vh",
         color: "white",
         position: "relative",
@@ -29,6 +23,7 @@ export default function Nature() {
         boxSizing: "border-box",
       }}
     >
+      {/* Corner Leaves */}
       {["top left", "top right", "bottom left", "bottom right"].map((alt, i) => (
         <img
           key={alt}
@@ -49,29 +44,90 @@ export default function Nature() {
         />
       ))}
 
-      <main style={{ position: "relative", zIndex: 1, padding: "40px 16px", textAlign: "center" }}>
-        <h1 style={{ fontFamily: "'Great Vibes', cursive", fontSize: "2.6rem", marginBottom: 12 }}>
+      {/* Content */}
+      <main
+        style={{
+          position: "relative",
+          zIndex: 1,
+          padding: "40px 16px",
+          textAlign: "center",
+        }}
+      >
+        <h1
+          style={{
+            fontFamily: "'Great Vibes', cursive",
+            fontSize: "2.6rem",
+            marginBottom: 12,
+          }}
+        >
           Nature Album
         </h1>
         <p style={{ fontSize: "1.1rem", marginBottom: 28 }}>
-          Landscapes, flora, and the wild.
+          Beautiful views of the outdoors.
         </p>
 
+        {/* Masonry grid */}
         <div
           style={{
-            maxWidth: 1100,
+            columnCount: 3,
+            columnGap: "16px",
+            maxWidth: 1000,
             margin: "0 auto",
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(240px, 1fr))",
+          }}
+        >
+          {natureFiles.map((src, idx) => (
+            <img
+              key={src}
+              src={src}
+              alt={`Nature ${idx + 1}`}
+              style={{
+                width: "100%",
+                borderRadius: 10,
+                border: `2px solid ${forestGreen}`,
+                marginBottom: 16,
+                display: "inline-block",
+              }}
+            />
+          ))}
+        </div>
+
+        {/* Navigation */}
+        <div
+          style={{
+            marginTop: 36,
+            display: "flex",
+            justifyContent: "center",
             gap: 16,
           }}
         >
-          {/* <img src="/albums/nature/pic1.jpg" alt="Nature 1" style={{ width: "100%", borderRadius: 8 }} /> */}
-        </div>
-
-        <div style={{ marginTop: 36, display: "flex", justifyContent: "center", gap: 16 }}>
-          <Link to="/albums" style={button}>Back to Albums</Link>
-          <Link to="/" style={button}>Home</Link>
+          <Link
+            to="/albums"
+            style={{
+              border: `2px solid ${forestGreen}`,
+              color: "white",
+              padding: "10px 18px",
+              borderRadius: "9999px",
+              textDecoration: "none",
+              fontWeight: 600,
+              fontSize: "1rem",
+            }}
+          >
+            Back to Albums
+          </Link>
+          <Link
+            to="/"
+            style={{
+              border: `2px solid ${forestGreen}`,
+              color: "white",
+              padding: "10px 18px",
+              borderRadius: "9999px",
+              textDecoration: "none",
+              fontWeight: 600,
+              fontSize: "1rem",
+            }}
+          >
+            Home
+          </Link>
         </div>
       </main>
     </div>
